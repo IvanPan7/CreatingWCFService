@@ -25,5 +25,8 @@ namespace Service
 
         [OperationContract]
         List<ElSalvadorHotels> GetHotelsListByLocation(User user);
+
+        [OperationContract]
+        List<ElSalvadorHotels> GetHotelsListByID(User user);
     }
 }

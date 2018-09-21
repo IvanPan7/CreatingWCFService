@@ -50,6 +50,7 @@
     <Compile Include="IHotelBookingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reservation.cs" />
+    <Compile Include="ReservationFault.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

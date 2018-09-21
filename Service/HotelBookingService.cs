@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,7 +13,18 @@ namespace Service
         public BookingResponse BookHotel(Reservation reservation)
         {
             BookingResponse Response = null;
+            if (!IsHotelNameValid(reservation))
+            {
+                //Throw una FaultExecption
+                //Throw FaultExeption<T>
+                
+                throw new FaultException<ReservationFault>(new ReservationFault {
+                    HotelName = reservation.HotelName,
+                    ErrorCode = "123"
+                });
+            }
             if (reservation.HotelName=="HotelA")
+            
             {
                 Response = new BookingResponse { IsApproved = true, BookingReference = "AR3254" };
             }
@@ -22,10 +34,17 @@ namespace Service
             }
             return Response;
         }
+
+        private bool IsHotelNameValid(Reservation reservation)
+        {
+            return string.Equals(reservation.HotelName, "ABC");
+            //throw una Fault Execption
+        }
+
         public bool Authenticate(User user)
         {
            
-            if (user.NameUser == "Gustavo")
+            if (user.NameUser == "IvanPan7")
             {
                 return true;
 
@@ -125,6 +144,7 @@ namespace Service
             });
             if (user.Request != null)
             {
+                
                 try
                 {
                     result = theList.Where(p => p.DepartmentLocation == user.Request.ToString()).ToList();
@@ -189,6 +209,63 @@ namespace Service
                     result = null;
                 }
                 
+            }
+            return result;
+        }
+
+        public List<ElSalvadorHotels> GetHotelsListByID(User user)
+        {
+            List<ElSalvadorHotels> theList = new List<ElSalvadorHotels>();
+            var result = theList;
+            theList.Add(new ElSalvadorHotels()
+            {
+                NameHotel = "Sheraton Presidente",
+                Category = "Gran Hotel",
+                DepartmentLocation = "San Salvador"
+            });
+            theList.Add(new ElSalvadorHotels()
+            {
+                NameHotel = "Decameron",
+                Category = "Gran Hotel",
+                DepartmentLocation = "La Libertad"
+            });
+            theList.Add(new ElSalvadorHotels()
+            {
+                NameHotel = "Tropico Inn",
+                Category = "Gran Hotel",
+                DepartmentLocation = "San Miguel"
+            });
+            theList.Add(new ElSalvadorHotels()
+            {
+                NameHotel = "Confort Inn",
+                Category = "Mediano Hotel",
+                DepartmentLocation = "San Miguel"
+            });
+            theList.Add(new ElSalvadorHotels()
+            {
+                IDHotel = 1,
+                NameHotel = "Casino Migueleño",
+                Category = "Mediano Hotel",
+                DepartmentLocation = "San Miguel"
+            });
+            theList.Add(new ElSalvadorHotels()
+            {
+                NameHotel = "Hotel Colon",
+                Category = "Pequeño Hotel",
+                DepartmentLocation = "Usulutan"
+            });
+            if (user.Request != null)
+            {
+                try
+                {
+                    int request = int.Parse(user.Request);
+                    result = theList.Where(p => p.IDHotel== request).ToList();
+                }
+                catch (Exception)
+                {
+                    result = null;
+                }
+
             }
             return result;
         }
