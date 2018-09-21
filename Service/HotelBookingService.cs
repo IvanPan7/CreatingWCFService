@@ -61,36 +61,42 @@ namespace Service
 
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 1,
                 NameHotel = "Sheraton Presidente",
                 Category = "Gran Hotel",
                 DepartmentLocation = "San Salvador"
             });
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 2,
                 NameHotel = "Decameron",
                 Category = "Gran Hotel",
                 DepartmentLocation = "La Libertad"
             });
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 3,
                 NameHotel = "Tropico Inn",
                 Category = "Gran Hotel",
                 DepartmentLocation = "San Miguel"
             });
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 4,
                 NameHotel = "Confort Inn",
                 Category = "Mediano Hotel",
                 DepartmentLocation = "San Miguel"
             });
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 5,
                 NameHotel = "Casino Migueleño",
                 Category = "Mediano Hotel",
                 DepartmentLocation = "San Miguel"
             });
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 6,
                 NameHotel = "Hotel Colon",
                 Category = "Pequeño Hotel",
                 DepartmentLocation = "Usulutan"
@@ -104,40 +110,53 @@ namespace Service
 
         public List<ElSalvadorHotels> GetHotelsListByLocation(User user)
         {
+            //Implementar fault exception
+            if (string.IsNullOrEmpty(user.Request))
+            {
+                throw new FaultException("El código de área no puede estar vacío");
+            }
+            
+
             List<ElSalvadorHotels> theList = new List<ElSalvadorHotels>();
             var result = theList;
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 1,
                 NameHotel = "Sheraton Presidente",
                 Category = "Gran Hotel",
                 DepartmentLocation = "San Salvador"
             });
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 2,
                 NameHotel = "Decameron",
                 Category = "Gran Hotel",
                 DepartmentLocation = "La Libertad"
             });
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 3,
                 NameHotel = "Tropico Inn",
                 Category = "Gran Hotel",
                 DepartmentLocation = "San Miguel"
             });
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 4,
                 NameHotel = "Confort Inn",
                 Category = "Mediano Hotel",
                 DepartmentLocation = "San Miguel"
             });
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 5,
                 NameHotel = "Casino Migueleño",
                 Category = "Mediano Hotel",
                 DepartmentLocation = "San Miguel"
             });
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 6,
                 NameHotel = "Hotel Colon",
                 Category = "Pequeño Hotel",
                 DepartmentLocation = "Usulutan"
@@ -155,6 +174,10 @@ namespace Service
                 }
                 
             }
+            if (theList==null)
+            {
+                throw new FaultException("No hay datos de hoteles");
+            }
             return result;
         }
 
@@ -164,36 +187,42 @@ namespace Service
             var result = theList;
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 1,
                 NameHotel = "Sheraton Presidente",
                 Category = "Gran Hotel",
                 DepartmentLocation = "San Salvador"
             });
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 2,
                 NameHotel = "Decameron",
                 Category = "Gran Hotel",
                 DepartmentLocation = "La Libertad"
             });
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 3,
                 NameHotel = "Tropico Inn",
                 Category = "Gran Hotel",
                 DepartmentLocation = "San Miguel"
             });
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 4,
                 NameHotel = "Confort Inn",
                 Category = "Mediano Hotel",
                 DepartmentLocation = "San Miguel"
             });
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 5,
                 NameHotel = "Casino Migueleño",
                 Category = "Mediano Hotel",
                 DepartmentLocation = "San Miguel"
             });
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 6,
                 NameHotel = "Hotel Colon",
                 Category = "Pequeño Hotel",
                 DepartmentLocation = "Usulutan"
@@ -219,37 +248,42 @@ namespace Service
             var result = theList;
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 1,
                 NameHotel = "Sheraton Presidente",
                 Category = "Gran Hotel",
                 DepartmentLocation = "San Salvador"
             });
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 2,
                 NameHotel = "Decameron",
                 Category = "Gran Hotel",
                 DepartmentLocation = "La Libertad"
             });
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 3,
                 NameHotel = "Tropico Inn",
                 Category = "Gran Hotel",
                 DepartmentLocation = "San Miguel"
             });
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 4,
                 NameHotel = "Confort Inn",
                 Category = "Mediano Hotel",
                 DepartmentLocation = "San Miguel"
             });
             theList.Add(new ElSalvadorHotels()
             {
-                IDHotel = 1,
+                IDHotel = 5,
                 NameHotel = "Casino Migueleño",
                 Category = "Mediano Hotel",
                 DepartmentLocation = "San Miguel"
             });
             theList.Add(new ElSalvadorHotels()
             {
+                IDHotel = 6,
                 NameHotel = "Hotel Colon",
                 Category = "Pequeño Hotel",
                 DepartmentLocation = "Usulutan"
