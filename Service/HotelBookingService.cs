@@ -18,10 +18,10 @@ namespace Service
                 //Throw una FaultExecption
                 //Throw FaultExeption<T>
                 
-                throw new FaultException<ReservationFault>(new ReservationFault {
+               /* throw new FaultException<ReservationFault>(new ReservationFault {
                     HotelName = reservation.HotelName,
                     ErrorCode = "123"
-                });
+                }); */
             }
             if (reservation.HotelName=="HotelA")
             
