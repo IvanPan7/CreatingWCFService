@@ -26,11 +26,19 @@ namespace Service
             if (reservation.HotelName=="HotelA")
             
             {
-                Response = new BookingResponse { IsApproved = true, BookingReference = "AR3254" };
+                Response = new BookingResponse
+                {
+                    IsApproved = true,
+                    BookingReference = "AR3254"
+                };
             }
             else
             {
-                Response = new BookingResponse { IsApproved = false, BookingReference = "null" };
+                Response = new BookingResponse
+                {
+                    IsApproved = false,
+                    BookingReference = "null"
+                };
             }
             return Response;
         }

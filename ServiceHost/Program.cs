@@ -14,18 +14,23 @@ namespace ServiceHost
         {
             try
             {
-                Uri tcpURI = new Uri("net.tcp//localhost:80/");
-                System.ServiceModel.ServiceHost host =  
-                    new System.ServiceModel.ServiceHost(typeof(Service.HotelBookingService),tcpURI);
-                host.AddServiceEndpoint(typeof(Service.IHotelBookingService),new NetTcpBinding(), "booking");
-                host.Opened += new EventHandler((o, a) => Console.WriteLine());
+               System.ServiceModel.ServiceHost host = new System.ServiceModel.ServiceHost(typeof(HotelBookingService));
+                host.Opened += new EventHandler((o, a) =>
+                {
+                    Console.WriteLine("Felicidades se alojó tu servicio");
+                    foreach (var item in host.Description.Endpoints)
+                    {
+                        Console.WriteLine(item.ListenUri);
+                    }
+                });
                 host.Open();
             }
+
             catch (Exception ex)
             {
-                Console.WriteLine("Falló el alojamiento del servicio", ex);
-                throw ex;
+                Console.WriteLine("Falló el alojamiento del servicio: {0}", ex);
             }
+
             Console.ReadLine();
         }
     }
